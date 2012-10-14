@@ -23,7 +23,7 @@ my $dbh = DBI->connect("DBI:mysql:database=UIC-Dataset;host=127.0.0.1", "root", 
 ### }
 # --------------------------------------------------
 
-$products = $dbh->prepare("SELECT id, ProductID FROM productinfo WHERE (ProductID IS NOT NULL && break LIKE 'BREAK-REVIEWED%')");
+$products = $dbh->prepare("SELECT id, ProductID FROM productinfo WHERE (ProductID IS NOT NULL && break LIKE 'BREAK-REVIEWED%')"); # && ProductID = ' 0002171856'
 $products->execute();
 
 while(my $product = $products->fetchrow_hashref())
@@ -32,21 +32,25 @@ while(my $product = $products->fetchrow_hashref())
   $cleanID =~ s/^\s+//;
   $cleanID =~ s/\s+$//;
   
-  $reviews = $dbh->prepare("SELECT Rating FROM DONEReviews WHERE ProductID = ?");
+  $reviews = $dbh->prepare("SELECT Rating, dateReal FROM DONEReviews WHERE ProductID = ?");
   $reviews->execute($cleanID);
   my $average = 0.0;
   my $numReviews = 0;
   
+  $latest = "";
+  @stack = qw( NULL NULL NULL NULL NULL NULL NULL NULL NULL NULL );
   while(my $review = $reviews->fetchrow_hashref())
   {
+    # print $review->{'dateReal'}."\n";
     $average = $average + $review->{'Rating'};
     $numReviews++;
+    push (@stack, $average / $numReviews);
+    # print $average / $numReviews . "\n";
+    $latest = $review->{'dateReal'};
   }
-  if ($numReviews > 0) {
-    $average = $average / $numReviews;
-    
-    $statement = "UPDATE productinfo SET Raverage = ? WHERE id = ?";
-    $dbh->do($statement, undef, $average, $product->{'id'}); 
+  if ($numReviews > 0) {    
+    $statement = "UPDATE productinfo SET NumReviews = ?, Raverage0t = ?, Raverage1t = ?, Raverage2t = ?, Raverage3t = ?, Raverage4t = ?, Raverage5t = ?, Raverage6t = ?, Raverage7t = ?, Raverage8t = ?, Raverage9t = ?, Rlatest = ? WHERE id = ?;";
+    $dbh->do($statement, undef, $numReviews, pop @stack, pop @stack, pop @stack, pop @stack, pop @stack, pop @stack, pop @stack, pop @stack, pop @stack, pop @stack, $latest, $product->{'id'}); 
     ### print "ID: $product->{'ProductID'}, $average\n";
   }  
 }
