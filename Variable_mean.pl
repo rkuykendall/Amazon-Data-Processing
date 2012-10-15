@@ -32,7 +32,7 @@ while(my $product = $products->fetchrow_hashref())
   $cleanID =~ s/^\s+//;
   $cleanID =~ s/\s+$//;
   
-  $reviews = $dbh->prepare("SELECT Rating, dateReal FROM DONEReviews WHERE ProductID = ?");
+  $reviews = $dbh->prepare("SELECT Rating, dateReal FROM Reviews WHERE ProductID = ?");
   $reviews->execute($cleanID);
   my $average = 0.0;
   my $numReviews = 0;

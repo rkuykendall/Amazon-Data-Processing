@@ -23,7 +23,7 @@ my $dbh = DBI->connect("DBI:mysql:database=UIC-Dataset;host=127.0.0.1", "root", 
 ### }
 # --------------------------------------------------
 
-$reviews = $dbh->prepare("SELECT id, date FROM DONEReviews WHERE (date IS NOT NULL)");
+$reviews = $dbh->prepare("SELECT id, date FROM Reviews WHERE (date IS NOT NULL)");
 $reviews->execute();
 
 while(my $review = $reviews->fetchrow_hashref())
@@ -44,7 +44,7 @@ while(my $review = $reviews->fetchrow_hashref())
 
     $dateReal = $year."-".$month."-".$day;
 
-    $statement = "UPDATE DONEReviews SET dateReal = ? WHERE id = ?";
+    $statement = "UPDATE Reviews SET dateReal = ? WHERE id = ?";
     $dbh->do($statement, undef, $dateReal, $review->{'id'}); 
   } else {
     print "ERROR! Danger, Will Robinson! [".$review->{'date'}."]\n";

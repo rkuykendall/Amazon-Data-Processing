@@ -66,7 +66,7 @@ while(<MYINPUTFILE>)
 
 	# Create MySQL Query
 	# ==================================================
-	$query = "INSERT INTO DONEReviews (";
+	$query = "INSERT INTO ews (";
 	while (($key, $value) = each(%item)) {
 	    $query .= $key.", ";
 	}
