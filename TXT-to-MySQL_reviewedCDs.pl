@@ -24,7 +24,7 @@ my $dbh = DBI->connect("DBI:mysql:database=UIC-Dataset;host=127.0.0.1", "root", 
 ### }
 # ==================================================
 
-open(MYINPUTFILE, "<productInfoXML-reviewed-AudioCDs.txt");
+open(MYINPUTFILE, "<LIU-UIC-SMDM-Working/productInfoXML-reviewed-AudioCDs.txt");
 
 %item = ();
 $next = 0;

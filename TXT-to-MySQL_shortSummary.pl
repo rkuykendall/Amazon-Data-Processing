@@ -24,7 +24,7 @@ my $dbh = DBI->connect("DBI:mysql:database=UIC-Dataset;host=127.0.0.1", "root", 
 ### }
 # --------------------------------------------------
 
-open(MYINPUTFILE, "<amazon-member-shortSummary.txt");
+open(MYINPUTFILE, "<LIU-UIC-SMDM-Working/amazon-member-shortSummary.txt");
 
 %item = ();
 $next = 0;

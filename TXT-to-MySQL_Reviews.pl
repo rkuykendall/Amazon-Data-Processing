@@ -24,7 +24,7 @@ my $dbh = DBI->connect("DBI:mysql:database=UIC-Dataset;host=127.0.0.1", "root", 
 # --------------------------------------------------
 
 
-open(MYINPUTFILE, "<reviewsNew-clean.txt");
+open(MYINPUTFILE, "<LIU-UIC-SMDM-Working/reviewsNew-clean.txt");
 %item = ();
 ### $count = 0;
 
