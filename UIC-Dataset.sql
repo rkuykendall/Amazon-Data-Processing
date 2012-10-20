@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.27)
 # Database: UIC-Dataset
-# Generation Time: 2012-09-17 22:26:53 +0000
+# Generation Time: 2012-10-15 16:00:31 +0000
 # ************************************************************
 
 
@@ -41,10 +41,10 @@ CREATE TABLE `Booksinfo` (
 
 
 
-# Dump of table DONELocations
+# Dump of table Locations
 # ------------------------------------------------------------
 
-CREATE TABLE `DONELocations` (
+CREATE TABLE `Locations` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `Username` varchar(255) DEFAULT NULL,
   `MemberRank` varchar(255) DEFAULT NULL,
@@ -58,10 +58,10 @@ CREATE TABLE `DONELocations` (
 
 
 
-# Dump of table DONEproductInfoXMLReviewedAudioCDs
+# Dump of table productInfoXMLReviewedAudioCDs
 # ------------------------------------------------------------
 
-CREATE TABLE `DONEproductInfoXMLReviewedAudioCDs` (
+CREATE TABLE `productInfoXMLReviewedAudioCDs` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `OneProductID` varchar(255) DEFAULT NULL,
   `OneSalesRank` int(11) DEFAULT NULL,
@@ -101,10 +101,10 @@ CREATE TABLE `DONEproductInfoXMLReviewedAudioCDs` (
 
 
 
-# Dump of table DONEproductInfoXMLReviewedMProducts
+# Dump of table productInfoXMLReviewedMProducts
 # ------------------------------------------------------------
 
-CREATE TABLE `DONEproductInfoXMLReviewedMProducts` (
+CREATE TABLE `productInfoXMLReviewedMProducts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `OneProductID` varchar(255) DEFAULT NULL,
   `OneSalesRank` varchar(255) DEFAULT NULL,
@@ -259,28 +259,30 @@ CREATE TABLE `DONEproductInfoXMLReviewedMProducts` (
 
 
 
-# Dump of table DONEReviews
+# Dump of table Reviews
 # ------------------------------------------------------------
 
-CREATE TABLE `DONEReviews` (
+CREATE TABLE `Reviews` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `MemberID` varchar(255) DEFAULT NULL,
   `ProductID` varchar(255) DEFAULT NULL,
   `Date` varchar(255) DEFAULT NULL,
+  `dateReal` date DEFAULT NULL,
   `NumHelpfulFeedbacks` varchar(255) DEFAULT NULL,
   `NumFeedbacks` varchar(255) DEFAULT NULL,
   `Rating` varchar(255) DEFAULT NULL,
   `Title` varchar(255) DEFAULT NULL,
   `Body` text,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ProductID` (`ProductID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
-# Dump of table DONEshortSummary
+# Dump of table shortSummary
 # ------------------------------------------------------------
 
-CREATE TABLE `DONEshortSummary` (
+CREATE TABLE `shortSummary` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `MemberID` varchar(255) DEFAULT NULL,
   `MemberName` varchar(255) DEFAULT NULL,
@@ -297,9 +299,20 @@ CREATE TABLE `DONEshortSummary` (
 
 CREATE TABLE `productinfo` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `Raverage0t` double DEFAULT NULL,
+  `Raverage1t` double DEFAULT NULL,
+  `Raverage2t` double DEFAULT NULL,
+  `Raverage3t` double DEFAULT NULL,
+  `Raverage4t` double DEFAULT NULL,
+  `Raverage5t` double DEFAULT NULL,
+  `Raverage6t` double DEFAULT NULL,
+  `Raverage7t` double DEFAULT NULL,
+  `Raverage8t` double DEFAULT NULL,
+  `Raverage9t` double DEFAULT NULL,
+  `Rlatest` date DEFAULT NULL,
   `ProductID` varchar(255) DEFAULT NULL,
   `ProductName` varchar(255) DEFAULT NULL,
-  `NumReviews` varchar(255) DEFAULT NULL,
+  `NumReviews` int(255) DEFAULT NULL,
   `ProductType` varchar(255) DEFAULT NULL,
   `Brand` varchar(255) DEFAULT NULL,
   `SalesPrice` varchar(255) DEFAULT NULL,
@@ -307,7 +320,8 @@ CREATE TABLE `productinfo` (
   `ShortProductDescription` varchar(255) DEFAULT NULL,
   `CatPaths` text,
   `break` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ProductID` (`ProductID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
