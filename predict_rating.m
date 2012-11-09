@@ -1,24 +1,22 @@
-x = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1];
-% x = ones(5,1);  % Normalized white Gaussian noise
-% noise = matrix(1, 3, [1, 2, 3]); 
-% x = filter(1,[1 1/2 1/3 1/4],noise);
-% x = x(45904:50000);
-
-a = lpc(x,3);
-est_x = filter([0 -a(2:end)],1,x);    % Estimated signal
-e = x - est_x;                        % Prediction error
-[acs,lags] = xcorr(e,'coeff');        % ACS of prediction error
-
+x = [3.5195500803428 3 3.25 3.5 2.5 1.5 1 2.5 1 1 5 4.33333333333333 3.66666666666667 3 2 5 3 2.33333333333333 5 2.2 2.33333333333333 5 1 3 5 2 2.33333333333333 3 5 3.75 2.5 1.75 1 1.5 3 4.5 4.66666666666667 4.83333333333333 5 1.33333333333333 3 3 1 1 1.83333333333333 2.66666666666667 2.33333333333333 2 1.66666666666667 1.33333333333333 1 5 3 1 1.5 2 3 3.66666666666667 4.33333333333333 5 4 3 2 1 1.5 2 2.5 2 1.5 1 5 3 2.75 5 1 5 1 5 3 1 4 3.5 3.66666666666667 3.83333333333333 4 5 5 5 4 3 2 1 1 1 1 1 1 1 1 1];
+disp('x');
 disp(x);
+
+order = 10;
+
+a = lpc(x,order);
+disp('a');
 disp(a);
+
+est_x = filter([0 -a(2:end)],1,[x, zeros(1,order*10)]);    % Estimated signal
+disp('est_x');
 disp(est_x);
+
+e = [x, zeros(1,order*10)] - est_x;                        % Prediction error
+disp('e');
 disp(e);
 
-% plot(1:97,x(4001:4097),1:97,est_x(4001:4097),'--');
-% title('Original Signal vs. LPC Estimate');
-% xlabel('Sample Number'); ylabel('Amplitude'); grid;
-% legend('Original Signal','LPC Estimate')
+[acs,lags] = xcorr(e,'coeff');        % ACS of prediction error
 
-% plot(lags,acs); 
-% title('Autocorrelation of the Prediction Error');
-% xlabel('Lags'); ylabel('Normalized Value'); grid;
+
+plot(1:(100+order*10), [x, zeros(1,order*10)], 1:(100+order*10), est_x);
