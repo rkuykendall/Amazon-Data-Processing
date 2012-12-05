@@ -1,0 +1,28 @@
+827178,827179c827178,827180
+< A34UH095TFI	Matt	1	 (Cabin 6, Imperial Star Destroyer 	Exitcuter)
+<  I LOVE DB/Z. I haven't seen any GT. I love the DB/Z manga and tapes!! I just wish that they would put the DBZ movies in theaters!! See Goku and Gohan womp ass on the big screen...*drools*... 
+---
+> A34UH095TFI	Matt	1	 (Cabin 6, Imperial Star Destroyer Exitcuter)
+>  I LOVE DB/Z. I haven't seen any GT. I love the DB/Z manga and tapes!! I just wish that they would put the DBZ movies in theaters!! See 
+>  ...*drools*... 
+953344c953345
+< A2WZY0I94SJ	Florence Weaver	1	 (Chicago, 	ll)
+---
+> A2WZY0I94SJ	Florence Weaver	1	 (Chicago, ll)
+1004855c1004856
+< A3FHQL4BSLN	Thomas Cohen	1	 (Cleveland,	Ohio)
+---
+> A3FHQL4BSLN	Thomas Cohen	1	 (Cleveland, Ohio)
+1583320c1583321
+< AO0K8F4AQ3B	Hannah 	William	0	 (Atlanta, GA)
+---
+> AO0K8F4AQ3B	Hannah William	0	 (Atlanta, GA)
+1737020,1737021c1737021
+< A37913EMIYM	enoxard "perl -Mre=eval -e'$_=shift;;@[=split//;;$,=qq;\n;;;print
+< m;(.{$-}(?{$-++}));,q;;while$-<=@[;;' 'Just Another Perl Hacker'"	1	 (earth crust)
+---
+> A37913EMIYM	enoxard "perl -Mre=eval -e'$_=shift;;@[=split//;;$,=qq;\n;;;print m;(.{$-}(?{$-++}));,q;;while$-<=@[;;' 'Just Another Perl Hacker'"	1	 (earth crust)
+2670400c2670400
+< A1E5HIG4X3V	Joseph A 	Iriana	1	 (USA)
+---
+> A1E5HIG4X3V	Joseph A Iriana	1	 (USA)

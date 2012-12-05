@@ -1,0 +1,4 @@
+1d0
+< RowID	ProductID	Publisher	ReleaseDate	ProductDimensions	ShippingWeight	Language	NumPages	Type	Edition	FullDesc
+659867a659867
+> vailable for Pocket PC and Tablet PC devices only.	File Size -> 400 KB	Publisher -> Loose Id, LLC (April 2006)
